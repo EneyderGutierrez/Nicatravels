@@ -126,7 +126,7 @@ def createhotelf(request):
 		#counp = len(formhotel)
 				return render(request,'createhotel.html',{'form':createhotel,'hotel':datahotel, 'lent':counp, 'datarep':datares})
 		else:
-			return render(request,'createhotel.html',{'form':createhotel,'hotel':datahotel, 'lent':counp, 'datarep':datares})
+			return render(request,'createhotel.html',{'form':createhotel,'hotel':datahotel, 'lent':counp,})
 
 	else:
 		datafhotel = perfil.objects.filter(user=request.user)
@@ -217,4 +217,4 @@ def createdepi(request):
 		perfilsave = createdep(request.POST)
 		new_perfil = perfilsave.save(commit=False)
 		new_perfil.save()
-		return render(request, 'adminnk.html',{'form':createdep})
+		return redirect('admon')
