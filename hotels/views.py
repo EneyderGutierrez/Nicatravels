@@ -211,4 +211,4 @@ def createdepi(request):
 		perfilsave = createdep(request.POST)
 		new_perfil = perfilsave.save(commit=False)
 		new_perfil.save()
-		return render(request, 'adminnk.html',{'f
+		return render(request, 'adminnk.html',{'form':createdep})
