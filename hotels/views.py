@@ -201,5 +201,5 @@ def departamentos_detail_rest(request, departamentosdn_name):
 	return render(request, 'departamentos_detail_rest.html',{'departamento_detail':departamentod, 'restnk':hoteldp})
 
 
-def createdepi():
+def createdepi(request):
 	return render(request, 'adminnk.html',{'form':createdep})
