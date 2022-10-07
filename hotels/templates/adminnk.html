@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+        {% block content %}
+        <div class="bodydiv">
+    <form action="/signin/" method="POST" id="form" class="formp">
+         {%csrf_token%}
+        {{form}}
+    </form>
+
+</div>
+<style>
+@media screen and (max-width:500px){
+    form{
+        width: 80%;
+    }
+}
+</style>
+{% endblock %}
