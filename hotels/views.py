@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.conf.urls.static import static
 from django.contrib.auth import login, logout, authenticate
-from .models import perfil, iniciomodelnk, departamentos as departamentos, turi, hoteleslni, reservationhotelx as reservationhotel, restni
+from .models import perfil, iniciomodelnk, departamentosur as departamentos, turi, hoteleslni, reservationhotelx as reservationhotel, restni
 from .forms import perfilform, createhotel, reservahform, createrestau, createdep
 
 
