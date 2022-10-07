@@ -202,7 +202,7 @@ def departamentos_detail_rest(request, departamentosdn_name):
 #       print (departamentos_name)
 	departamentod = departamentos.objects.get(departamento = departamentosdn_name)
 	print (departamentod)
-ñ	hoteldp = restni.objects.filter(ciudad = departamentosdn_name)
+	hoteldp = restni.objects.filter(ciudad = departamentosdn_name)
 	print (hoteldp)
 	return render(request, 'departamentos_detail_rest.html',{'departamento_detail':departamentod, 'restnk':hoteldp})
 
