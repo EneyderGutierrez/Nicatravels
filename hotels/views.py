@@ -221,9 +221,9 @@ def createdepi(request):
 
 
 def turin(request):
-        if request.method == 'GET':
-                return render(request, 'adminnk.html',{'form':turipp})
-        else:
+	if request.method == 'GET':
+ 		return render(request, 'adminnk.html',{'form':turipp})
+	else:
 		dataperfil = turi.objects.all()
 		formperfil = list(dataperfil)
 		counp = len(formperfil)
@@ -231,3 +231,4 @@ def turin(request):
 		new_perfil = perfilsave.save(commit=False)
 		new_perfil.save()
 		return redirect('sentp')
+
