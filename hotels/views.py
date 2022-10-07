@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.conf.urls.static import static
 from django.contrib.auth import login, logout, authenticate
 from .models import perfil, iniciomodelnk, departamentosur as departamentos, turi, hoteleslni, reservationhotelx as reservationhotel, restni
-from .forms import perfilform, createhotel, reservahform, createrestau, createdep
+from .forms import perfilform, createhotel, reservahform, createrestau, createdep, turipp
 
 
 
@@ -218,3 +218,16 @@ def createdepi(request):
 		new_perfil = perfilsave.save(commit=False)
 		new_perfil.save()
 		return redirect('admon')
+
+
+def turin(request):
+        if request.method == 'GET':
+                return render(request, 'adminnk.html',{'form':turipp})
+        else:
+		dataperfil = turi.objects.all()
+		formperfil = list(dataperfil)
+		counp = len(formperfil)
+		perfilsave = turipp(request.POST)
+		new_perfil = perfilsave.save(commit=False)
+		new_perfil.save()
+		return redirect('sentp')

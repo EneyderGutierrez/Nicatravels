@@ -1,5 +1,5 @@
 from django import forms
-from .models import perfil, hoteleslni ,reservationhotelx as reservationhotel, restni, departamentosur
+from .models import perfil, hoteleslni ,reservationhotelx as reservationhotel, restni, departamentosur, turi
 class perfilform(forms.ModelForm):
 	class Meta:
 		model = perfil
@@ -59,3 +59,9 @@ class createdep(forms.ModelForm):
 	class Meta:
 		model = departamentosur
 		fields = ['departamento','description','imageperfil','slide','slide1', 'slide2']
+
+
+class turipp(forms.ModelForm):
+	class Meta:
+		model = turi
+		fields = ['dep','description']
