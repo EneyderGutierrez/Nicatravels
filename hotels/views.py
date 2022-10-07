@@ -201,11 +201,16 @@ def departamentos_detail_rest(request, departamentosdn_name):
 	return render(request, 'departamentos_detail_rest.html',{'departamento_detail':departamentod, 'restnk':hoteldp})
 
 
-def createdepi(request):
-	dataperfil = departamentos.objects.filter(user=request.user)
-	formperfil = list(dataperfil)
-	counp = len(formperfil)
-	perfilsave = createdep(request.POST)
-	new_perfil = perfilsave.save(commit=False)
-	new_perfil.save()
-	return render(request, 'adminnk.html',{'form':createdep})
+def createdepi(request)
+	if request.method == 'GET':
+		return render(request, 'adminnk.html',{'form':createdep})
+	else:
+		dataperfil = departamentos.objects.filter(user=request.user)
+		formperfil = list(dataperfil)
+		counp = len(formperfil)
+		perfilsave = createdep(request.POST)
+		new_perfil = perfilsave.save(commit=False)
+		new_perfil.save()
+		return render(request, 'adminnk.html',{'form':createdep})
+
+j
