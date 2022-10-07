@@ -116,12 +116,18 @@ def hotel_detail(request, hoteld_name):
 def createhotelf(request):
 	if request.method == 'GET':
 		datahotel = hoteleslni.objects.filter(user=request.user)
-		for i in datahotel:
-			nhotel = i.namehotel
-		datares = reservationhotel.objects.filter(reservahotel=nhotel)
 		formhotel = list(datahotel)
 		counp = len(formhotel)
-		return render(request,'createhotel.html',{'form':createhotel,'hotel':datahotel, 'lent':counp, 'datarep':datares})
+		if counp > 0:
+			for i in datahotel:
+				nhotel = i.namehotel
+				datares = reservationhotel.objects.filter(reservahotel=nhotel)
+		#0formhotel = list(datahotel)
+		#counp = len(formhotel)
+				return render(request,'createhotel.html',{'form':createhotel,'hotel':datahotel, 'lent':counp, 'datarep':datares})
+		else:
+			return render(request,'createhotel.html',{'form':createhotel,'hotel':datahotel, 'lent':counp, 'datarep':datares})
+
 	else:
 		datafhotel = perfil.objects.filter(user=request.user)
 		formhotel = list(datafhotel)
@@ -196,7 +202,7 @@ def departamentos_detail_rest(request, departamentosdn_name):
 #       print (departamentos_name)
 	departamentod = departamentos.objects.get(departamento = departamentosdn_name)
 	print (departamentod)
-	hoteldp = restni.objects.filter(ciudad = departamentosdn_name)
+ñ	hoteldp = restni.objects.filter(ciudad = departamentosdn_name)
 	print (hoteldp)
 	return render(request, 'departamentos_detail_rest.html',{'departamento_detail':departamentod, 'restnk':hoteldp})
 
@@ -205,7 +211,7 @@ def createdepi(request):
 	if request.method == 'GET':
 		return render(request, 'adminnk.html',{'form':createdep})
 	else:
-		dataperfil = departamentos.objects.filter(user=request.user)
+		dataperfil = departamentos.objects.all()
 		formperfil = list(dataperfil)
 		counp = len(formperfil)
 		perfilsave = createdep(request.POST)
